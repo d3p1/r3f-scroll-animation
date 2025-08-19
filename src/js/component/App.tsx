@@ -5,13 +5,14 @@
 import {Canvas} from '@react-three/fiber'
 import {OrbitControls, ScrollControls} from '@react-three/drei'
 import {Suspense} from 'react'
+import {Greeting} from './app/Greeting.tsx'
 import {Loader} from './app/Loader.tsx'
 import {Office} from './app/Office.tsx'
 
 export const App = () => {
   return (
     <>
-      <Canvas camera={{position: [2, 0, 2]}}>
+      <Canvas camera={{position: [2, 0, 2], fov: 60}}>
         <OrbitControls makeDefault={true} enableZoom={false} />
 
         <ambientLight intensity={1} />
@@ -28,6 +29,8 @@ export const App = () => {
           <Suspense fallback={<Loader />}>
             <Office />
           </Suspense>
+
+          <Greeting />
         </ScrollControls>
       </Canvas>
     </>

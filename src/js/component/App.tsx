@@ -16,7 +16,15 @@ export const App = () => {
 
         <ambientLight intensity={1} />
 
-        <ScrollControls pages={3} damping={0.4}>
+        <ScrollControls
+          pages={3}
+          damping={0.4}
+          style={{
+            scrollbarWidth: 'thin',
+            scrollbarColor:
+              'var(--color-accent-primary) var(--color-accent-secondary)',
+          }}
+        >
           <Suspense fallback={<Loader />}>
             <Office />
           </Suspense>

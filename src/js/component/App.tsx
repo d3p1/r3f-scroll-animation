@@ -4,17 +4,21 @@
  */
 import {Canvas} from '@react-three/fiber'
 import {OrbitControls} from '@react-three/drei'
+import {Suspense} from 'react'
+import {Loader} from './app/Loader.tsx'
 import {Office} from './app/Office.tsx'
 
 export const App = () => {
   return (
     <>
-      <Canvas camera={{position: [0, 1, 3]}}>
+      <Canvas camera={{position: [2, 2, 2]}}>
         <OrbitControls makeDefault={true} />
 
         <ambientLight intensity={1} />
 
-        <Office />
+        <Suspense fallback={<Loader />}>
+          <Office />
+        </Suspense>
       </Canvas>
     </>
   )

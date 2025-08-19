@@ -6,6 +6,7 @@ import {Canvas} from '@react-three/fiber'
 import {Float, OrbitControls, Text} from '@react-three/drei'
 import {Leva, useControls} from 'leva'
 import {Perf} from 'r3f-perf'
+import {Office} from './app/Office.tsx'
 
 export const App = () => {
   const {isPerfVisible} = useControls('perf', {
@@ -53,6 +54,8 @@ export const App = () => {
 
         <OrbitControls makeDefault={true} />
 
+        <ambientLight intensity={1} />
+
         {isTextVisible && (
           <Float speed={floatSpeed} floatIntensity={floatIntensity}>
             <Text fontSize={fontSize} color={fontColor}>
@@ -60,6 +63,8 @@ export const App = () => {
             </Text>
           </Float>
         )}
+
+        <Office />
       </Canvas>
     </>
   )
